@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Plugin-Class: foo.FooPlugin
+Plugin-Id: foo-plugin
+Plugin-Provider: Paolo
+Plugin-Version: 0.0.1
