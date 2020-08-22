@@ -4,7 +4,7 @@ import org.pf4j.Plugin;
 import org.pf4j.PluginWrapper;
 
 /**
- * @author Paolo Di Tommaso <paolo.ditommaso@gmail.com>
+ * NOTE: both plugins and extensions must be Java (not groovy) classes
  */
 public class FooPlugin extends Plugin {
     /**

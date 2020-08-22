@@ -2,6 +2,7 @@ apply plugin: 'java'
 
 subprojects {
     apply plugin: 'java'
+    apply plugin: 'groovy'
 
     repositories {
         mavenLocal()

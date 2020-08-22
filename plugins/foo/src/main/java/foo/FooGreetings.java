@@ -4,6 +4,10 @@ import org.pf4j.Extension;
 import plug.test.Greeting;
 
 /**
+ * Simple Extension example
+ * 
+ * NOTE: both plugins and extensions must be Java (not groovy) classes
+ *
  * @author Paolo Di Tommaso <paolo.ditommaso@gmail.com>
  */
 @Extension(ordinal = -1)
