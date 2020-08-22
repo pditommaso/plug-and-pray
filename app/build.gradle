@@ -5,12 +5,10 @@
  * For more details take a look at the Groovy Quickstart chapter in the Gradle
  * User Manual available at https://docs.gradle.org/6.5.1/userguide/tutorial_groovy_projects.html
  */
-
 plugins {
     // Apply the groovy plugin to add support for Groovy
     id 'java'
     id 'groovy'
-
     // Apply the application plugin to add support for building a CLI application.
     id 'application'
 }
@@ -41,17 +39,17 @@ dependencies {
 
 application {
     // Define the main class for the application.
+    println ":: App deployMode=${deployMode}; pluginsDir=${pluginsDir}; "
+    // the `deployMode` and `pluginsDir` properties are defined in the top gradle file
+    applicationDefaultJvmArgs << "-Dpf4j.mode=${deployMode}"
+    applicationDefaultJvmArgs << "-Dpf4j.pluginsDir=${pluginsDir}"
     mainClassName = 'app.App'
-    applicationDefaultJvmArgs << "-Dpf4j.pluginsDir=/Users/pditommaso/Projects/plug-and-pray/plugins"
-    applicationDefaultJvmArgs << "-Dpf4j.mode=dev"
-
-// use to run in run in production mode using the packaged plugins + `make build && make run`
-//    applicationDefaultJvmArgs << "-Dpf4j.pluginsDir=/Users/pditommaso/Projects/plug-and-pray/build/plugins"
-//    applicationDefaultJvmArgs << "-Dpf4j.mode=prod"
 }
 
 compileGroovy {
     // assemble plugins before compiling the main app
+    // all plugins should be listed here to recompile plugins since
+    // there isn't a direct gradle dependency with the main app
     dependsOn(':plugins:foo:jar')
 }
 
@@ -59,3 +57,4 @@ run {
     // Add this dep to trigger packaging `build/plugins /*.zip` files
     // dependsOn(':plugins:build')
 }
+

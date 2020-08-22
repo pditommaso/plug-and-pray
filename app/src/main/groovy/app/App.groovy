@@ -22,6 +22,7 @@ class App implements Closeable {
     UpdateManager updateManager
 
     App() {
+        println "+++ ${System.getProperty('pf4j.pluginsDir')}"
 // enable DEV mode
 //        System.setProperty('pf4j.pluginsDir', new File('/Users/pditommaso/Projects/plug-and-pray/plugins').canonicalPath)
 //        System.setProperty('pf4j.mode', 'dev')
